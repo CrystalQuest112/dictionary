@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./dictionary.css";
+import Definition from "./definition";
 
 function Dictionary() {
   const [keyword, setKeyword] = useState("");
+  const [info, setInfo] = useState("null");
 
   function defineWord(response) {
     console.log(response.data[0]);
+    setInfo(response.data[0]);
   }
 
   function searchWord(event) {
@@ -34,20 +37,7 @@ function Dictionary() {
             <input type="submit" value="search"></input>
           </form>
           <br />
-          <div className="main-text">
-            <h5 className="card-title" id="noun">
-              noun
-            </h5>
-            <p className="card-text" id="define">
-              the sacred asp as represented upon the headdress of divinities and
-              royal personages of ancient Egypt, usually directly over the
-              forehead, as an emblem of supreme power.
-            </p>
-          </div>
-          <h1 className="bigword">uraeus</h1>{" "}
-          <small className="text-muted" id="small">
-            [ yoo-ree-uhs ]
-          </small>
+          <Definition info={info} />
         </div>
       </div>
     </div>
