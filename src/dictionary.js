@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./dictionary.css";
-import Definition from "./definition";
 
 function Dictionary() {
   const [keyword, setKeyword] = useState("");
@@ -24,6 +23,8 @@ function Dictionary() {
     axios.get(apiUrl).then(defineWord);
   }
 
+  console.log();
+
   return (
     <div className="box1">
       <div className="card mb-3">
@@ -37,7 +38,21 @@ function Dictionary() {
             <input type="submit" value="search"></input>
           </form>
           <br />
-          <Definition info={info} />
+          <div className="main-text">
+            <p className="card-title" id="noun">
+              noun
+            </p>
+            <p className="card-text" id="define">
+              {info.meanings[0].definitions[0].definition}
+            </p>
+            <p className="card-text" id="define">
+              {info.meanings[0].definitions[1].definition}
+            </p>
+            <h1 className="bigword">{info.word}</h1>{" "}
+            <small className="text-muted" id="small">
+              {info.phonetic}
+            </small>
+          </div>
         </div>
       </div>
     </div>
