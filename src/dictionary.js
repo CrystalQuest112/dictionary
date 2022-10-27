@@ -4,8 +4,8 @@ import "./dictionary.css";
 import Define from "./define";
 
 function Dictionary() {
-  const [keyword, setKeyword] = useState("");
-  const [info, setInfo] = useState("null");
+  const [keyword, setKeyword] = useState(null);
+  const [info, setInfo] = useState(null);
 
   function defineWord(response) {
     console.log(response.data[0]);
