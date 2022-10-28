@@ -27,8 +27,8 @@ function Dictionary() {
   if (info) {
     return (
       <div className="layout">
-        <nav class="navbar" id="text">
-          DICTIONARY
+        <nav class="navbar navbar-expand-lg navbar-light bg-dark" id="navy">
+          word
         </nav>
         <section className="section-one">
           <form onSubmit={getWord}>
@@ -37,7 +37,7 @@ function Dictionary() {
               placeholder="find word"
               onChange={searchWord}
             ></input>
-            <input type="submit" value="search"></input>
+            <input type="submit" value="search" id="button"></input>
           </form>
           <br />
           <Define info={info} />
