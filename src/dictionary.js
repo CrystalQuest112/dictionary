@@ -4,7 +4,7 @@ import "./dictionary.css";
 import Define from "./define";
 
 function Dictionary() {
-  const [keyword, setKeyword] = useState(null);
+  const [keyword, setKeyword] = useState("uraeus");
   const [info, setInfo] = useState(null);
 
   function defineWord(response) {
@@ -15,16 +15,16 @@ function Dictionary() {
   function searchWord(event) {
     setKeyword(event.target.value);
   }
-
-  function getWord(event) {
-    event.preventDefault();
-    alert(`${keyword}`);
-
+  function search() {
     let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${keyword}`;
     axios.get(apiUrl).then(defineWord);
   }
+  function getWord(event) {
+    event.preventDefault();
+    search();
+  }
 
-  if (info)
+  if (info) {
     return (
       <div className="box1">
         <div className="card mb-3">
@@ -43,6 +43,9 @@ function Dictionary() {
         </div>
       </div>
     );
+  } else {
+    search();
+    return "DICTIONARY";
+  }
 }
-
 export default Dictionary;

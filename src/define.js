@@ -5,14 +5,11 @@ export default function Define(props) {
   if (props.info) {
     return (
       <div className="main-text">
-        <p className="card-title" id="noun">
-          part of speech
-        </p>
+        <p className="card-title" id="noun"></p>
         <p className="card-text" id="define">
-          {props.info.meanings[0].definitions[0].definition}
-        </p>
-        <p className="card-text" id="define">
-          {props.info.meanings[0].definitions[1].definition}
+          {props.info.meanings.map(function (meaning, index) {
+            return <ul className="set">{meaning.definitions[0].definition}</ul>;
+          })}
         </p>
         <h1 className="bigword">{props.info.word}</h1>{" "}
         <small className="text-muted" id="small">
