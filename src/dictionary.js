@@ -26,21 +26,30 @@ function Dictionary() {
 
   if (info) {
     return (
-      <div className="box1">
-        <div className="card mb-3">
-          <div className="card-body">
-            <form onSubmit={getWord}>
-              <input
-                type="search"
-                placeholder="find word"
-                onChange={searchWord}
-              ></input>
-              <input type="submit" value="search"></input>
-            </form>
-            <br />
-            <Define info={info} />
-          </div>
-        </div>
+      <div className="layout">
+        <nav class="navbar" id="text">
+          DICTIONARY
+        </nav>
+        <section className="section-one">
+          <form onSubmit={getWord}>
+            <input
+              type="search"
+              placeholder="find word"
+              onChange={searchWord}
+            ></input>
+            <input type="submit" value="search"></input>
+          </form>
+          <br />
+          <Define info={info} />
+        </section>
+        <section className="section-two">
+          <div>photo</div>
+          <div>origin</div>
+        </section>
+        <section className="section-three">
+          <div>text</div>
+          <div>text</div>
+        </section>
       </div>
     );
   } else {
