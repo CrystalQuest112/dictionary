@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./dictionary.css";
 import Define from "./define";
+import Examples from "./examples";
+import Synonyms from "./synonyms";
 
 function Dictionary() {
   const [keyword, setKeyword] = useState("uraeus");
@@ -43,8 +45,16 @@ function Dictionary() {
           <Define info={info} />
         </section>
         <section className="section-two">
-          <div>photo</div>
-          <div>origin</div>
+          <div className="card" id="sm-card">
+            <h3>usage</h3>
+            <br />
+            <Examples info={info} />
+          </div>
+          <div className="card" id="sm-card">
+            <h3>synonyms</h3>
+            <br />
+            <Synonyms info={info} />
+          </div>
         </section>
         <section className="section-three">
           <div>text</div>

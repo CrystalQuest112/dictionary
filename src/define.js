@@ -1,15 +1,22 @@
 import React from "react";
 import graphic from "./graphic.png";
+import Phonetic from "./phonetic.js";
 
 export default function Define(props) {
   console.log(props.info);
   if (props.info) {
     return (
       <section className="main-text">
-        <div class="card">
+        <div class="card" id="large-card">
           <h1 className="bigword">{props.info.word}</h1>{" "}
           <small className="text-muted" id="small">
-            {props.info.phonetic}
+            {props.info.phonetics.map(function (phonetic, index) {
+              return (
+                <div key={index}>
+                  <Phonetic phonetic={phonetic} />
+                </div>
+              );
+            })}
           </small>
           {props.info.meanings.map(function (meaning, index) {
             return (
