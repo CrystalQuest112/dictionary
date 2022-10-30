@@ -1,6 +1,4 @@
 import React from "react";
-import graphic from "./graphic.png";
-import Phonetic from "./phonetic.js";
 
 export default function Define(props) {
   console.log(props.info);
@@ -13,7 +11,13 @@ export default function Define(props) {
             {props.info.phonetics.map(function (phonetic, index) {
               return (
                 <div key={index}>
-                  <Phonetic phonetic={phonetic} />
+                  <div className="audio">
+                    <small>{phonetic.text} </small>
+                    <a href={phonetic.audio} target="_blank" rel="noreferrer">
+                      {" "}
+                      Listen
+                    </a>
+                  </div>
                 </div>
               );
             })}
@@ -28,7 +32,6 @@ export default function Define(props) {
           })}
           <div></div>
         </div>
-        <img src={graphic} width={420} alt="graphic"></img>
       </section>
     );
   } else {
