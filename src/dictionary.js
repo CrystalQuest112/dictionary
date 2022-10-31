@@ -4,11 +4,12 @@ import "./dictionary.css";
 import Define from "./define";
 import Examples from "./examples";
 import Synonyms from "./synonyms";
-import graphic from "./graphic.png";
+import graphic1 from "./graphic1.png";
+import graphic2 from "./graphic2.png";
 import Images from "./images";
 
 function Dictionary() {
-  const [keyword, setKeyword] = useState("flower");
+  const [keyword, setKeyword] = useState("universe");
   const [info, setInfo] = useState(null);
   const [images, setImages] = useState(null);
 
@@ -29,7 +30,7 @@ function Dictionary() {
     let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${keyword}`;
     axios.get(apiUrl).then(defineWord);
 
-    let apiPexUrl = `https://api.pexels.com/v1/search?query=${keyword}`;
+    let apiPexUrl = `https://api.pexels.com/v1/search?query=${keyword}&per_page=4`;
     let apiPexKey = "563492ad6f917000010000012dab4816e5cc462ca4b62353479eb8a9";
 
     let headers = { Authorization: `Bearer ${apiPexKey}` };
@@ -52,7 +53,7 @@ function Dictionary() {
                 <h2>what's the word?</h2>
               </div>
               <input
-                className="change"
+                className="bar"
                 type="search"
                 placeholder="find word"
                 onChange={searchWord}
@@ -66,8 +67,15 @@ function Dictionary() {
         </section>
         <section className="image">
           {" "}
-          <img src={graphic} width={507} alt="graphic" id="cartoon"></img>
+          <img
+            src={graphic1}
+            width={500}
+            alt="graphic"
+            id="cartoon"
+            className="img-fluid"
+          ></img>
         </section>
+
         <section className="section-two">
           <div className="card" id="sm-card">
             <h3>usage</h3>
@@ -79,11 +87,23 @@ function Dictionary() {
             <br />
             <Synonyms info={info} />
           </div>
+          <section className="image2">
+            {" "}
+            <img
+              src={graphic2}
+              width={320}
+              alt="graphic"
+              id="cartoon1"
+              className="img-fluid"
+            ></img>
+          </section>
         </section>
         <section className="section-three">
-          <div> text</div>
           <Images images={images} />
         </section>
+        <footer>
+          <a href="https://github.com/CrystalQuest112/dictionary">github</a>
+        </footer>
       </div>
     );
   } else {

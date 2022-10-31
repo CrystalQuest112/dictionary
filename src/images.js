@@ -5,7 +5,11 @@ export default function Images(props) {
     return (
       <section className="section-three">
         {props.images.map(function (image, index) {
-          return <img src={image.src.tiny} alt="thumbnail" />;
+          return (
+            <div key={index}>
+              <img src={image.src.tiny} alt="thumbnail" id="grid" />
+            </div>
+          );
         })}
       </section>
     );
